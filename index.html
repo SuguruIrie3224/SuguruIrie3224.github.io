@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="入江俊（いりえすぐる）の職務経歴から、公開可能なゲーム関連の制作実績を抜粋したポートフォリオ">
+  <title>入江 俊（いりえ すぐる）| Technical Artist Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --surface: #eef0f3;
+      --panel: #ffffff;
+      --panel-2: #ffffff;
+      --text: #18202d;
+      --muted: #657083;
+      --line: #dce1e8;
+      --cyan: #246b87;
+      --violet: #59657a;
+      --lime: #246b87;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif;
+      line-height: 1.8;
+    }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+      min-height: 64px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { font-size: .8rem; font-weight: 800; letter-spacing: .14em; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      color: var(--muted); font-size: .78rem; text-decoration: none;
+      letter-spacing: .08em;
+    }
+    .hero {
+      min-height: 560px; display: grid; align-items: center;
+      padding: 92px 0 72px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--cyan); font: 700 .76rem/1.2 ui-monospace, monospace;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+    h1 {
+      margin: 22px 0 26px; font-size: clamp(3.4rem, 8vw, 6.8rem);
+      line-height: .95; letter-spacing: -.06em;
+    }
+    h1 small {
+      display: block; margin-top: 30px; color: var(--muted);
+      font-size: clamp(.95rem, 2vw, 1.35rem); font-weight: 500;
+      letter-spacing: .18em;
+    }
+    .lead { max-width: 720px; color: #465267; font-size: 1.05rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 22px; border: 1px solid var(--line);
+      border-radius: 4px; font-size: .82rem; font-weight: 800;
+      letter-spacing: .08em; text-decoration: none;
+    }
+    .button.primary { border-color: var(--cyan); color: #fff; background: var(--cyan); }
+    .hud { display: none; }
+    section { padding: 82px 0; border-top: 1px solid var(--line); }
+    main > section:first-child { border-top: 0; }
+    .section-head {
+      display: grid; grid-template-columns: .72fr 1.28fr;
+      align-items: start; gap: 64px; margin-bottom: 44px;
+    }
+    .kicker { color: var(--cyan); font: 700 .7rem ui-monospace, monospace; letter-spacing: .18em; }
+    h2 {
+      margin: 8px 0 0; font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.15; letter-spacing: -.04em;
+      word-break: keep-all; overflow-wrap: normal;
+    }
+    .section-head p { margin: 12px 0 0; color: var(--muted); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); }
+    .stat { padding: 30px 24px; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font: 700 1.45rem ui-monospace, monospace; }
+    .stat span { color: var(--muted); font-size: .76rem; }
+    .projects { display: grid; gap: 24px; }
+    .project {
+      display: grid; grid-template-columns: 1.7fr .8fr; overflow: hidden;
+      border: 1px solid var(--line); border-radius: 4px; background: var(--panel);
+    }
+    .project:nth-child(even) { grid-template-columns: .8fr 1.7fr; }
+    .project:nth-child(even) .project-media { order: 2; }
+    .project-media { position: relative; min-height: 500px; background: #eef0f3; overflow: hidden; }
+    .project-media img { height: 100%; object-fit: contain; }
+    .project-media--portrait {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 390px; padding: 0 48px;
+    }
+    .project-media--portrait img {
+      width: auto; height: auto; max-width: 68%; max-height: 390px;
+    }
+    .project-body { padding: clamp(28px, 5vw, 58px); align-self: center; }
+    .number { color: var(--violet); font: 700 .72rem ui-monospace, monospace; letter-spacing: .15em; }
+    h3 { margin: 12px 0 8px; font-size: clamp(1.55rem, 3vw, 2.4rem); line-height: 1.3; }
+    .role { margin: 0 0 20px; color: var(--cyan); font-size: .82rem; font-weight: 700; }
+    .project-body p { color: #526075; font-size: .92rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+    .tag {
+      padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px;
+      color: var(--muted); font: .68rem ui-monospace, monospace;
+    }
+    .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+    .work-card { padding: 28px; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
+    .work-card h3 { font-size: 1.25rem; }
+    .work-card p { min-height: 82px; color: var(--muted); font-size: .84rem; }
+    .work-links-title {
+      border-top: 1px solid var(--line); padding-top: 14px;
+      color: var(--cyan); font-size: .75rem; font-weight: 700;
+    }
+    .links { display: grid; gap: 7px; margin-top: 14px; }
+    .links a {
+      color: #465267; font: .69rem ui-monospace, monospace;
+      text-decoration: none; overflow-wrap: anywhere;
+    }
+    .remaining-count {
+      margin-top: 10px; color: var(--muted);
+      font-size: .72rem;
+    }
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+    .tool { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); }
+    .tool img { aspect-ratio: 16/9; object-fit: cover; border-bottom: 1px solid var(--line); }
+    .tool-copy { padding: 24px; }
+    .tool h3 { margin-top: 0; font-size: 1.2rem; }
+    .tool p { color: var(--muted); font-size: .84rem; }
+    .outro { padding-bottom: 120px; }
+    .outro-box {
+      padding: clamp(34px, 7vw, 76px); border: 1px solid var(--line);
+      border-radius: 4px; background: #fff;
+    }
+    .outro p { max-width: 760px; color: #526075; }
+    .summary-lead {
+      max-width: 900px; margin: 20px 0 40px;
+      color: #465267; font-size: 1rem;
+    }
+    .summary-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; overflow: hidden;
+      border: 1px solid var(--line); background: var(--line);
+    }
+    .summary-block { padding: 28px; background: #fff; }
+    .summary-block h3 { margin: 0 0 12px; font-size: 1rem; }
+    .summary-block p, .summary-block li {
+      color: #526075; font-size: .84rem;
+    }
+    .summary-block ul { margin: 0; padding-left: 1.2em; }
+    .summary-block li + li { margin-top: 6px; }
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding-top: 84px; }
+      .hero-grid, .section-head { grid-template-columns: 1fr; }
+      .hud { width: min(75vw, 340px); margin-inline: auto; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .project, .project:nth-child(even) { grid-template-columns: 1fr; }
+      .project:nth-child(even) .project-media { order: 0; }
+      .project-media { min-height: 300px; }
+      .project-media--portrait { min-height: 320px; padding: 0 32px; }
+      .project-media--portrait img { max-height: 320px; }
+      .works-grid, .tools-grid { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .work-card p { min-height: auto; }
+    }
+    @page { size: A4 portrait; margin: 14mm 13mm 15mm; }
+    @media print {
+      html { font-size: 9.5pt; }
+      body { background: #fff; color: #111; line-height: 1.55; }
+      .nav, .cta-row { display: none; }
+      .wrap { width: 100%; max-width: none; }
+      .hero {
+        min-height: 0; height: 257mm; padding: 30mm 5mm;
+        align-items: center; border: 0; break-after: page;
+      }
+      h1 { font-size: 52pt; }
+      h1 small { font-size: 11pt; }
+      section { padding: 8mm 0; }
+      .section-head { gap: 8mm; margin-bottom: 7mm; }
+      h2 { font-size: 23pt; }
+      .stats { margin-bottom: 5mm; }
+      .stat { padding: 5mm 4mm; }
+      .projects { gap: 7mm; }
+      .project, .project:nth-child(even) {
+        grid-template-columns: 55% 45%;
+        min-height: 0; break-inside: avoid; page-break-inside: avoid;
+      }
+      .project:nth-child(even) .project-media { order: 0; }
+      .project-media { min-height: 72mm; }
+      .project-media--portrait { min-height: 60mm; padding: 0 7mm; }
+      .project-media--portrait img { max-height: 60mm; }
+      .project-body { padding: 7mm; }
+      .project-body h3 { font-size: 17pt; }
+      .project-body p { font-size: 8.5pt; }
+      .works-grid, .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-block { padding: 5mm; }
+      .work-card, .tool, .outro-box {
+        break-inside: avoid; page-break-inside: avoid; border-color: #bbb;
+      }
+      .work-card { padding: 5mm; }
+      .work-card p { min-height: 18mm; }
+      .work-links-title { color: #333; }
+      .links { gap: 1.5mm; }
+      .links a { color: #222; font-size: 7pt; }
+      .tool-copy { padding: 5mm; }
+      .tool h3 { font-size: 12pt; }
+      .project-body p, .section-head p, .tool p, .work-card p, .outro p { color: #333; }
+      .outro { break-before: page; }
+      footer { padding: 4mm 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">SUGURU IRIE <span>// PORTFOLIO</span></div>
+      <div class="nav-links">
+        <a href="#profile">PROFILE</a>
+        <a href="#work">WORK</a>
+        <a href="#tools">TOOLS</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Public Works / Game &amp; Animation</div>
+        <h1>入江 俊<small>いりえ すぐる / SUGURU IRIE — SELECTED WORKS</small></h1>
+        <p class="lead">職務経歴のうち、公開可能なゲーム関連の制作実績を抜粋したポートフォリオです。Unityを使用した3Dキャラクターアニメーション制作におけるルック・揺れもの調整、制作支援ツールの開発などを掲載しています。</p>
+        <div class="cta-row">
+          <a class="button primary" href="#work">制作実績を見る</a>
+          <a class="button" href="#tools">開発ツールを見る</a>
+        </div>
+      </div>
+      <div class="hud" aria-hidden="true">
+        <div class="hud-core"><strong>UNITY</strong><span>LOOKDEV / PHYSICS / TOOLS</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="profile">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">01 / PROFILE</div><h2>プロフィールと<br>担当領域</h2></div>
+          <p>本資料では、株式会社Yostarで2023年1月から2024年12月まで担当した業務のうち、公開可能な制作物を中心に掲載しています。3Dモデルを使用したアニメーション制作、揺れもの・マテリアルなどのルック調整、モーションの微調整や小物3Dモデル制作に関するチーム内の取りまとめに加え、Unity上の制作支援ツールの開発・改修・運用保守に携わりました。</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>2 YEARS</strong><span>Yostar 在籍期間</span></div>
+          <div class="stat"><strong>UNITY</strong><span>主要制作環境</span></div>
+          <div class="stat"><strong>3D / TA</strong><span>アニメーション制作支援</span></div>
+          <div class="stat"><strong>CI/CD</strong><span>自動化・運用</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">02 / SELECTED WORK</div><h2>制作時の<br>調整事例</h2></div>
+          <p>ルック、コライダー、コンストレインの調整例です。掲載画像は制作時のUnity画面です。</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-media project-media--portrait"><img src="assets/alice-prop-penetration.jpg" alt="キャラクターの髪と手に持った小物の貫通例"></div>
+            <div class="project-body">
+              <div class="number">CASE 01 — SECONDARY MOTION</div>
+              <h3>先生、ちょっとお時間いただきます！#17</h3>
+              <div class="role">揺れもの調整 / ルック調整</div>
+              <p>後半数話を担当。掲載例では、キャラクターの髪と手に持った小物の貫通を確認し、揺れものの設定を調整しています。</p>
+              <div class="tags"><span class="tag">SECONDARY MOTION</span><span class="tag">COLLISION</span><span class="tag">LOOKDEV</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-media"><img src="assets/shiroko-look.jpg" alt="Unity上で緑色テープの反射を調整している画面"></div>
+            <div class="project-body">
+              <div class="number">CASE 02 — LOOK DEVELOPMENT</div>
+              <h3>ん、先生、ちょっと時間もらうね。</h3>
+              <div class="role">ルック調整 / 揺れもの / アセット準備</div>
+              <p>隔週ペースで担当。台本をもとに必要アセットを準備・制作依頼し、画面内の素材感を調整しました。例では、緑色テープの反射を確認しながら見え方を整えています。</p>
+              <div class="tags"><span class="tag">MATERIAL</span><span class="tag">LOOKDEV</span><span class="tag">ASSET COORDINATION</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-media"><img src="assets/abydos-collider.jpg" alt="Unityのタイムライン上でコライダーをアニメーションさせている画面"></div>
+            <div class="project-body">
+              <div class="number">CASE 03 — PHYSICS CONTROL</div>
+              <h3>先生、ちょっとお時間もらいますね。 #1</h3>
+              <div class="role">コライダー調整 / タイミング設計</div>
+              <p>序盤のエピソードを担当。モーションのタイミングに合わせてコライダーをアニメーションさせ、揺れ方と貫通を確認しながら調整しました。</p>
+              <div class="tags"><span class="tag">COLLIDER</span><span class="tag">TIMELINE</span><span class="tag">PHYSICS</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-media"><img src="assets/kazusa-shadow.jpg" alt="影の表示範囲調整前後の比較"></div>
+            <div class="project-body">
+              <div class="number">CASE 04 — VISUAL QUALITY</div>
+              <h3>先生、今週もお疲れさま、です</h3>
+              <div class="role">シャドウ調整 / ルック調整 / アセット準備</div>
+              <p>約半年間担当。比較例では、キャラクターの手に影が表示されるよう範囲を調整しています。</p>
+              <div class="tags"><span class="tag">SHADOW</span><span class="tag">LIGHTING</span><span class="tag">QUALITY CONTROL</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-media"><img src="assets/physics-fix.jpg" alt="揺れもの設定と衣装貫通の調整画面"></div>
+            <div class="project-body">
+              <div class="number">CASE 05 — TROUBLESHOOTING</div>
+              <h3>先生、ちょっとお時間いただくわ</h3>
+              <div class="role">揺れもの復旧 / 貫通対策 / コンストレイン調整</div>
+              <p>隔週ペースで担当。揺れもの設定の修正や、モーション実行時に発生する衣装貫通へのコンストレイン調整を行いました。</p>
+              <div class="tags"><span class="tag">CONSTRAINT</span><span class="tag">DEBUG</span><span class="tag">SECONDARY MOTION</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">03 / RELEASED WORKS</div><h2>公開作品</h2></div>
+          <p>担当した公開動画へのリンクです。各シリーズの動画をYouTubeで確認できます。</p>
+        </div>
+        <div class="works-grid" id="released-works"></div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">04 / UNITY TOOLS</div><h2>制作支援ツール</h2></div>
+          <p>チーム内ツールの改修・パッケージング、新規開発、運用保守を担当しました。以下は担当したツールの概要です。</p>
+        </div>
+        <div class="tools-grid">
+          <article class="tool">
+            <img src="assets/expression-tool.jpg" alt="Unity表情作成ツールの画面">
+            <div class="tool-copy"><h3>表情作成ツール</h3><p>ブレンドシェイプを使用した表情アニメーション作成ツールを改修・保守。シーンを開かず、ツール内で作成・編集・表示を完結できます。</p></div>
+          </article>
+          <article class="tool">
+            <img src="assets/recording-tool.jpg" alt="自動Recordingツールの管理画面">
+            <div class="tool-copy"><h3>自動Recording</h3><p>成果物動画を定期生成し、レビュー用Webツールへ自動アップロードするCI/CDの開発・設定を担当しました。</p></div>
+          </article>
+          <article class="tool">
+            <img src="assets/model-check.jpg" alt="GitHub Wikiに出力されたモデルチェック結果">
+            <div class="tool-copy"><h3>モデルチェック</h3><p>Prefabの必須コンポーネントとパラメータを検証し、結果をGitHub Wikiへ出力するツールを開発しました。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="outro">
+      <div class="wrap outro-box">
+        <div class="kicker">05 / SUMMARY</div>
+        <h2>担当経験のまとめ</h2>
+        <p class="summary-lead">株式会社Yostarにて、3Dモデルを用いたカットアニメーション制作と社内向けツール開発に携わりました。Unity上でのモデル制御やルック・揺れもの調整に加え、制作工程で必要となるアセット準備の取りまとめ、エディタ拡張の設計・実装・運用保守を担当しました。</p>
+        <div class="summary-grid">
+          <div class="summary-block">
+            <h3>担当領域</h3>
+            <ul>
+              <li>3Dモデルを用いたカットアニメーション制作</li>
+              <li>Unity上でのモデル制御、ルック・揺れもの調整</li>
+              <li>VTuber向け映像制作</li>
+              <li>社内ツール・エディタ拡張の設計と実装</li>
+            </ul>
+          </div>
+          <div class="summary-block">
+            <h3>ツール開発</h3>
+            <ul>
+              <li>アニメーションの自動取り込みツール</li>
+              <li>オブジェクト座標・パラメータの一括エクスポートツール</li>
+              <li>表情作成、モデルチェック、自動Recording関連ツール</li>
+              <li>既存ツールの改修・パッケージング・運用保守</li>
+            </ul>
+          </div>
+          <div class="summary-block">
+            <h3>制作上の工夫</h3>
+            <p>繰り返し発生するアセット管理やデータ出力をツール化し、手作業の削減と確認漏れの抑制を図りました。制作担当者が本来の調整作業に集中しやすいフローを意識して実装しています。</p>
+          </div>
+          <div class="summary-block">
+            <h3>開発環境・体制</h3>
+            <p>Unity / C# / MotionBuilder<br>役割：実装<br>プロジェクト規模：10～30名</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">SUGURU IRIE — TECHNICAL ARTIST PORTFOLIO</div></footer>
+  <script>
+    const works = [
+      [
+        "先生、ちょっとお時間いただきます！#17",
+        "後半数話を担当。揺れもの・ルック調整。",
+        ["HVChuYFnMfc","1FyaqJ2rewc","o2GYOgVijHc","-mbJwysIA6Y","zMAVZ7jdXd8"],
+        ["先生、ちょっとお時間いただきます！#17","先生、ちょっとお時間いただきます！#18","先生、ちょっとお時間いただきます！#19","先生、ちょっとお時間いただきます！#20","先生、ちょっとお時間いただきます！#21"]
+      ],
+      [
+        "ん、先生、ちょっと時間もらうね。 #1",
+        "隔週ペースで担当。アセット準備を含む。",
+        ["JxNoB_BJQH0","fgA1xGqKZBo","TaJbrhOs1hM","KgzOwPHrJnc","z75BSm8SyAE","cYKmetlWXyY","SoN8_J6iWCc","35trChFhkM0","8RCZX6oOKpE","W-h7lfs7hT4","o-c_JD7-ois","XmUR_N4b97s","zmW46Jsj_bA","EsHYjZ0z1I0"],
+        ["ん、先生、ちょっと時間もらうね。 #1","ん、先生、ちょっと時間もらうね。 #2","ん、先生、ちょっと時間もらうね。 #3","ん、先生、ちょっと時間もらうね。 #4","ん、先生、ちょっと時間もらうね。 #5"]
+      ],
+      [
+        "先生、ちょっとお時間もらいますね。 #1",
+        "序盤を担当。揺れもの・ルック調整。",
+        ["JMa0nFtRG4w","HblzE-T6mfw","uscj-aHRU7k","-uFC5lYdQis","JdMblmBMcww"],
+        [
+          "先生、ちょっとお時間もらいますね。 #1",
+          "先生、ちょっと時間もらうよ～… #2",
+          "ん、先生、ちょっと時間もらうね。 #3",
+          "先生、ちょっとお時間もらいますね☆ #4",
+          "先生、ちょっと時間もらうわよ！ #5"
+        ]
+      ],
+      [
+        "先生、今週もお疲れさま、です #1",
+        "約半年担当。ルックとアセット準備。",
+        ["0iJ5hqN4gZs","8WZdZZpTVvk","RuVKWs8JEdg","9AITHph_dAM","iSCzR1swBuk","817D1k9GtjQ","MZMc_sEvtdM","WyqEMLgws_I","zGcDY8u2pCo","6SIBtRTnmjM","wx0LsJ05KJQ","dpzwus9mNnQ","nv4KsrUOqC8","av8TiQ9TdaY","QgKK9Xmd5Rk","JZsybQJ99-Y","rpTjQ9m1H0o","H8_qyS2J7kY","g1Gs_2KKQBs","--C8M2G--_M","mT6afD_Ytj4","iWtGrdzfcyg","yx0EuoTJr8g"],
+        ["先生、今週もお疲れさま、です #1","先生、今週もお疲れさま、です #2","先生、今週もお疲れさま、です #3","先生、今週もお疲れさま、です #4","先生、今週もお疲れさま、です #5"]
+      ],
+      [
+        "先生、ちょっとお時間いただくわ #1",
+        "隔週ペースで担当。揺れものと貫通対策。",
+        ["7Jo8K-wZNJY","qf8uhf5yI5M","__ozqR6QGdk","Vrefp5AabBU","Mucv0Nviv3Q","GAClWXYf-xQ","Y6lXdrduvuo","v3Ph0GKWz8w","xOxttQH_Ky0","ZbOMyMYWOuU","sMpbZb5qU88","xKJ88986SEc"],
+        ["先生、ちょっとお時間いただくわ #1","せ、先生、ちょっとお時間いただきます… #3","先生、ちょっと時間もらうね～♡ #4","先生、ちょっと時間もらうね～♡ #7","先生、ちょっと時間もらうね～♡ #10"]
+      ],
+      [
+        "季節案件・特別コンテンツ",
+        "揺れもの調整の一部を担当。",
+        ["zpjjfBuKUNk","PbDtsquu2-0","5AYb8yOAdtY","qLhAUfm8weo","zSdPztUyfFA"],
+        [
+          "ん、先生、ちょっと時間もらうね。 #海の日特別回",
+          "【ブルアカ】ブルアカふぇす！ コーナー紹介",
+          "【ブルアカ】ムツキ『楽しんでますか、先生？』",
+          "【ブルアカ】ブルアカ超リアル麻雀 #前編",
+          "【ブルアカ】ブルアカサマー2024"
+        ]
+      ]
+    ];
+    document.querySelector("#released-works").innerHTML = works.map(([title, description, ids, itemTitles]) => `
+      <article class="work-card">
+        <div class="number">${String(ids.length).padStart(2, "0")} RELEASES</div>
+        <h3>${title}</h3><p>${description}</p>
+        <div class="work-links-title">ピックアップ（${Math.min(5, ids.length)}本）</div><div class="links">
+          ${ids.slice(0, 5).map((id, i) => `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">↗ ${itemTitles?.[i] ?? title}</a>`).join("")}
+        </div>
+        ${ids.length <= 5 ? "" : `<div class="remaining-count">ほか ${ids.length - 5} 本を担当</div>`}
+      </article>`).join("");
+  </script>
+</body>
+</html>
